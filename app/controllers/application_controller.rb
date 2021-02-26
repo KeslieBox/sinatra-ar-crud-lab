@@ -48,18 +48,16 @@ class ApplicationController < Sinatra::Base
 
   patch '/articles/:id' do
     @article = Article.find_by(id: params[:id])
-    # binding.pry
     @article.update(title: params[:title], content: params[:content])
+    
     erb :show
   end
 
-  delete 'articles/:id' do
-    binding.pry
-
+  delete '/articles/:id' do
     @article = Article.find_by(id: params[:id])
     @article.delete
     
-    redirect '/articles/index'
+    redirect '/articles'
   end
   
 end
