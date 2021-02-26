@@ -53,13 +53,13 @@ class ApplicationController < Sinatra::Base
     erb :show
   end
 
-  delete 'articles/:id' do
-    binding.pry
+  delete '/articles/:id' do
+    # binding.pry
 
     @article = Article.find_by(id: params[:id])
     @article.delete
     
-    redirect '/articles/index'
+    redirect '/articles'
   end
   
 end
